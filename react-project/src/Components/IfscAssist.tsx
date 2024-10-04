@@ -45,7 +45,16 @@ function IfscAssist({ifscCode}: Props) {
       fetchIfscData();
     }, [ifscCode]);
   
-    if (loading) return <div>Loading...</div>;
+    if (loading) {
+      return (
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border" role="status">
+            <span className="sr-only"></span>
+          </div>
+        </div>
+      );
+    }
+    
     if (error) return <div>Error: {error}</div>;
   
     return (
